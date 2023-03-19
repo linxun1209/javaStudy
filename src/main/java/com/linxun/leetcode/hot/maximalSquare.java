@@ -7,10 +7,6 @@ package com.linxun.leetcode.hot;
  * @date 2023/3/18 11:18
  */
 public class maximalSquare {
-
-
-
-
     public static int maximalSquare(char[][] matrix) {
         int m=matrix.length,n=matrix[0].length;
         if(m==1&&matrix[0][1]==0){
