@@ -1,4 +1,6 @@
-package com.并发;
+package com.并发.Test;
+
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author xingchen
@@ -63,4 +65,5 @@ public class NotifyAllTest {
 
         System.out.println("over");
     }
+
 }
