@@ -1,6 +1,5 @@
 package com.java8的新特性;
 
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,7 +14,6 @@ import java.util.stream.Stream;
  */
 public class StreamAPITest2 {
 
-    @Test
     public void test1(){
         List<Employee> employees = EmployeeData.getEmployees();
         //filter(Predicate p)——接收 Lambda ， 从流中排除某些元素。
@@ -40,7 +38,6 @@ public class StreamAPITest2 {
 
 
     //2-映射
-    @Test
     public void test2(){
         List<String> list = Arrays.asList("aa", "bb", "cc", "dd");
         //map(Function f)——接收一个函数作为参数，将元素转换成其他形式或提取信息，该函数会被应用到每个元素上，并将其映射成一个新的元素。
@@ -72,7 +69,6 @@ public class StreamAPITest2 {
         return list.stream();
     }
     //map()和flatMap()方法类似于List中的add()和addAll()方法
-    @Test
     public void test(){
         ArrayList<Object> list1 = new ArrayList<>();
         list1.add(1);

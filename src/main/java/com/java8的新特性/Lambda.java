@@ -1,7 +1,7 @@
 package com.java8的新特性;
 
 
-import org.junit.Test;
+
 
 import java.util.Comparator;
 
@@ -28,7 +28,7 @@ import java.util.Comparator;
 
 public class Lambda {
     //语法格式一：无参，无返回值
-    @Test
+
     public void test1(){
         Runnable r1 = new Runnable() {
             @Override
@@ -43,7 +43,6 @@ public class Lambda {
     }
 
 
-    @Test
     public void test2(){
         //未使用Lambda表达式的写法
         Comparator<Integer> com1 = new Comparator<Integer>() {

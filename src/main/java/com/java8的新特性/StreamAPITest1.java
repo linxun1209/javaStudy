@@ -1,6 +1,6 @@
 package com.java8的新特性;
 
-import org.junit.Test;
+
 
 import java.util.Arrays;
 import java.util.List;
@@ -57,7 +57,6 @@ import java.util.stream.Stream;
 public class StreamAPITest1 {
 
     //创建 Stream方式一：通过集合
-    @Test
     public void test1() {
         List<Employee> employees = EmployeeData.getEmployees();
         //efault Stream<E> stream() : 返回一个顺序流
@@ -68,7 +67,6 @@ public class StreamAPITest1 {
     }
 
     //创建 Stream方式二：通过数组
-    @Test
     public void test2() {
         int[] arrs = {1, 2, 3, 6, 2};
         //调用Arrays类的static <T> Stream<T> stream(T[] array): 返回一个流
@@ -81,13 +79,11 @@ public class StreamAPITest1 {
     }
 
     //创建 Stream方式三：通过Stream的of()
-    @Test
     public void test3() {
         Stream<Integer> integerStream = Stream.of(12, 34, 45, 65, 76);
     }
 
     //创建 Stream方式四：创建无限流
-    @Test
     public void test4() {
 
         //迭代

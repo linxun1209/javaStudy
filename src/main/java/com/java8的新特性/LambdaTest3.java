@@ -1,7 +1,7 @@
 package com.java8的新特性;
 
 
-import org.junit.Test;
+
 
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -15,7 +15,6 @@ import java.util.function.Supplier;
  */
 public class LambdaTest3 {
     //    消费型接口 Consumer<T>     void accept(T t)
-    @Test
     public void test1() {
         //未使用Lambda表达式
         Learn("java", new Consumer<String>() {
@@ -35,7 +34,6 @@ public class LambdaTest3 {
     }
 
     //    供给型接口 Supplier<T>     T get()
-    @Test
     public void test2() {
         //未使用Lambdabiaodas
         Supplier<String> sp = new Supplier<String>() {
@@ -52,7 +50,6 @@ public class LambdaTest3 {
     }
 
     //函数型接口 Function<T,R>   R apply(T t)
-    @Test
     public void test3() {
         //使用Lambda表达式
         Integer id = null;
@@ -69,7 +66,6 @@ public class LambdaTest3 {
     }
 
     //断定型接口 Predicate<T>    boolean test(T t)
-    @Test
     public void test4() {
         //使用匿名内部类
         Function<Double, Long> func = new Function<Double, Long>() {

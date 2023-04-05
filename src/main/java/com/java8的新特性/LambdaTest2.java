@@ -1,5 +1,9 @@
 package com.java8的新特性;
 
+
+
+
+
 import org.junit.Test;
 
 import java.util.ArrayList;
