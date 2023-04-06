@@ -1,4 +1,4 @@
-package com;
+package com.星火算法训练;
 
 
 import java.util.Arrays;
