@@ -1,7 +1,9 @@
 package com.并发.Test;
 
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.LongAccumulator;
 import java.util.concurrent.atomic.LongAdder;
+import java.util.function.LongBinaryOperator;
 
 /**
  * @author xingchen
@@ -14,25 +16,25 @@ public class AtomicTest {
     private static Integer[] arrayOne=new Integer[]{0,1,2,3,4,5,6,7,56,0};
     private static Integer[] arrayTwo=new Integer[]{10,1,2,3,4,5,6,0,56,0};
 
-    public static void main(String[] args) throws InterruptedException{
-        Thread threadOne=new Thread(new Runnable() {
+    public static void main(String[] args) throws InterruptedException {
+        Thread threadOne = new Thread(new Runnable() {
             @Override
             public void run() {
                 int size = arrayOne.length;
-                for(int i=0;i<size;i++){
-                    if(arrayOne[i].intValue()==0){
+                for (int i = 0; i < size; i++) {
+                    if (arrayOne[i].intValue() == 0) {
                         atomicLong.incrementAndGet();
                     }
                 }
             }
         });
 
-        Thread threadTwo=new Thread(new Runnable() {
+        Thread threadTwo = new Thread(new Runnable() {
             @Override
             public void run() {
                 int size = arrayTwo.length;
-                for(int i=0;i<size;i++){
-                    if(arrayTwo[i].intValue()==0){
+                for (int i = 0; i < size; i++) {
+                    if (arrayTwo[i].intValue() == 0) {
                         atomicLong.incrementAndGet();
                     }
                 }
@@ -44,7 +46,8 @@ public class AtomicTest {
         threadTwo.start();
         threadOne.join();
         threadTwo.join();
-        System.out.println("count 0:"+atomicLong.get());
+        System.out.println("count 0:" + atomicLong.get());
+        
 
     }
 }
