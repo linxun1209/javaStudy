@@ -1,5 +1,7 @@
 package com.并发.Test;
 
+import java.util.Arrays;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -64,6 +66,8 @@ public class NotifyAllTest {
         threadC.join();
 
         System.out.println("over");
+
+        
     }
 
 }
