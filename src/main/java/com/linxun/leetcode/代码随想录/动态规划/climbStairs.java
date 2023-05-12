@@ -31,4 +31,19 @@ public class climbStairs {
         return b;
     }
 
+
+    public int climbStairs3(int n) {
+        int[] dp=new int[n+1];
+        int m=2;
+        dp[0]=0;
+        for (int i=1;i<=n;i++){
+            for (int j=1;j<=m;j++){
+                if(i>=j){
+                    dp[i]+=dp[i-j];
+                }
+            }
+        }
+        return dp[n];
+    }
+
 }
