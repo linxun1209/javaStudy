@@ -8,19 +8,19 @@ import java.lang.reflect.InvocationTargetException;
 
 public class TestSingleton {
     public static void main(String[] args) throws Exception {
-        Singleton5.otherMethod();
+        Singleton2.otherMethod();
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        System.out.println(Singleton5.getInstance());
-        System.out.println(Singleton5.getInstance());
+        System.out.println(Singleton2.getInstance());
+        System.out.println(Singleton2.getInstance());
 
         // 反射破坏单例
-//        reflection(Singleton3.class);
+        reflection(Singleton2.class);
 
         // 反序列化破坏单例
-//        serializable(Singleton3.getInstance());
+//        serializable(Singleton1.getInstance());
 
         // Unsafe 破坏单例
-//        unsafe(Singleton3.class);
+//        unsafe(Singleton1.class);
     }
 
     private static void unsafe(Class<?> clazz) throws InstantiationException {

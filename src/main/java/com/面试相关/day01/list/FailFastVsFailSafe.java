@@ -3,6 +3,9 @@ package com.面试相关.day01.list;
 import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+/**
+ * @author xing'chen
+ */
 public class FailFastVsFailSafe {
     // fail-fast 一旦发现遍历的同时其它人来修改，则立刻抛异常
     // fail-safe 发现遍历的同时其它人来修改，应当能有应对策略，例如牺牲一致性来让整个遍历运行完成

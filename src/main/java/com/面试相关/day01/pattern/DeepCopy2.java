@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * @author xing'chen
+ */
 public class DeepCopy2 {
 
     public static void main(String[] args) throws Exception {

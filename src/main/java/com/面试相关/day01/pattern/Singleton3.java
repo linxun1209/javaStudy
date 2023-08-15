@@ -2,7 +2,10 @@ package com.面试相关.day01.pattern;
 
 import java.io.Serializable;
 
-// 3. 懒汉式单例
+/**懒汉式单例
+ *
+ * @author xing'chen
+ */
 public class Singleton3 implements Serializable {
     private Singleton3() {
         System.out.println("private Singleton3()");

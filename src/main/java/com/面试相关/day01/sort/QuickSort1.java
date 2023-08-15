@@ -5,7 +5,11 @@ import java.util.Arrays;
 import static com.面试相关.day01.sort.Utils.swap;
 
 
-// 单边循环法 (lomuto)
+/**
+ * 快排一
+ *
+ * 单边循环法 (lomuto)
+ */
 public class QuickSort1 {
     public static void main(String[] args) {
         int[] a = {5, 3, 7, 2, 9, 8, 1, 4};

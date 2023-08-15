@@ -2,13 +2,18 @@ package com.面试相关.day01.pattern;
 
 import java.io.Serializable;
 
-// 4. 懒汉式单例 - DCL
+/**
+ * 双检锁懒汉式
+ *
+ * 4. 懒汉式单例 - DCL
+ */
 public class Singleton4 implements Serializable {
     private Singleton4() {
         System.out.println("private Singleton4()");
     }
 
-    private static volatile Singleton4 INSTANCE = null; // 可见性，有序性
+    private static volatile Singleton4 INSTANCE = null;
+    // 可见性，有序性
 
     public static Singleton4 getInstance() {
         if (INSTANCE == null) {

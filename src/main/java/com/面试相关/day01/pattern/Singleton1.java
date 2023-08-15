@@ -2,7 +2,9 @@ package com.面试相关.day01.pattern;
 
 import java.io.Serializable;
 
-// 1. 饿汉式
+/**
+ * 1. 饿汉式
+ */
 public class Singleton1 implements Serializable {
     private Singleton1() {
         if (INSTANCE != null) {

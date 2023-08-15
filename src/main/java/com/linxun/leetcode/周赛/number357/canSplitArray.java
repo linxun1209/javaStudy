@@ -38,6 +38,15 @@ public class canSplitArray {
         return false;
 
     }
+
+
+    /**
+     * 错误
+     *
+     * @param nums
+     * @param m
+     * @return
+     */
     public boolean canSplitArray(List<Integer> nums, int m) {
         List<List<Integer>> ans=new ArrayList<>();
         int n=nums.size();

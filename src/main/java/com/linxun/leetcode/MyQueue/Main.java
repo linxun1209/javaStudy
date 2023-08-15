@@ -43,6 +43,9 @@ class MyQueue {
     }
 };
 
+/**
+ * @author xing'chen
+ */
 public class Main {
     public static void main(String[] args) {
         MyQueue q = new MyQueue();

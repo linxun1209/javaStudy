@@ -29,6 +29,9 @@ public class TestArrayList {
 
     private static void testAddAllGrowEmpty() {
         ArrayList<Integer> list = new ArrayList<>();
+        /**
+         * java 9才能使用list的静态方法
+         */
 //        list.addAll(List.of(1, 2, 3));
 //        list.addAll(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11));
         System.out.println(length(list));

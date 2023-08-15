@@ -12,7 +12,9 @@ import java.util.Queue;
  * @date 2023/3/19 9:13
  */
 public class invertTree {
-    //利用前序遍历
+    /**
+     * 利用前序遍历
+     */
     class Solution {
         // 先序遍历--从顶向下交换
         public TreeNode invertTree(TreeNode root) {

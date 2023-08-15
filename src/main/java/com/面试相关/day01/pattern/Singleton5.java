@@ -2,7 +2,10 @@ package com.面试相关.day01.pattern;
 
 import java.io.Serializable;
 
-// 5. 懒汉式单例 - 内部类
+/**
+ * 5. 懒汉式单例 - 内部类
+ * @author xing'chen
+ */
 public class Singleton5 implements Serializable {
     private Singleton5() {
         System.out.println("private Singleton5()");
