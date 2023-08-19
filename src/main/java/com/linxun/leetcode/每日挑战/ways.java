@@ -114,13 +114,18 @@ public class ways {
     }
 
 
-
-
-    public int ways2(String[] pizza, int k) {
+    /**
+     * 动态规划
+     *
+     * @param pizza
+     * @param k
+     * @return
+     */
+    public static int ways2(String[] pizza, int k) {
         int m=pizza.length,n=pizza[0].length(),mod=1_000_000_007;
         int[][] apple=new int[m+1][n+1];
         int[][][] dp=new int[k+1][m+1][n+1];
-       for (int i=m-1;i>=0;i--){
+        for (int i=m-1;i>=0;i--){
            for (int j=n-1;j>=0;j--){
                apple[i][j]=(pizza[i].charAt(j)=='A'?1:0)+apple[i][j+1]+apple[i+1][j]-apple[i][j];
                dp[1][i][j]=apple[i][j]>0?1:0;
@@ -129,11 +134,13 @@ public class ways {
        for (int ki=2;ki<=k;ki++){
            for (int i=0;i<m;i++){
                for (int j=0;j<n;j++){
+                   //水平方向切割
                    for (int i2=i+1;i2<m;i2++){
                        if(apple[i][j]>apple[i2][j]){
                            dp[ki][i][j]=(dp[k][i][j]+dp[ki-1][i2][j])%mod;
                        }
                    }
+                   //竖直方向切割
                    for (int j2=j+1;j2<n;j2++){
                        if(apple[i][j]>apple[i][j2]){
                            dp[ki][i][j]=(dp[ki][i][j]+dp[ki-1][i][j2])%mod;
@@ -144,6 +151,14 @@ public class ways {
 
        }
        return dp[k][0][0];
+
+    }
+
+    public static void main(String[] args) {
+        String[] pizza={"A..","AAA","..."};
+        int k=3;
+        ways2(pizza,k);
+
 
     }
 }
