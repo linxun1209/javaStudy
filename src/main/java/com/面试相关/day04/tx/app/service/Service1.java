@@ -6,13 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+/**
+ * @author xing'chen
+ */
 @Service
 public class Service1 {
 
-    @Autowired
+    @Resource
     private AccountMapper accountMapper;
 
     @Transactional(rollbackFor = Exception.class)

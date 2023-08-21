@@ -17,7 +17,7 @@ public class TestConfiguration {
         AnnotationConfigUtils.registerAnnotationConfigProcessors(context.getDefaultListableBeanFactory());
         context.registerBean("myConfig", MyConfig.class);
         context.refresh();
-//        System.out.println(context.getBean(MyConfig.class).getClass());
+        System.out.println(context.getBean(MyConfig.class).getClass());
     }
 
     @Configuration
@@ -26,16 +26,16 @@ public class TestConfiguration {
     static class MyConfig {
         // 注意点2: @Bean 不支持方法重载, 如果有多个重载方法, 仅有一个能入选为工厂方法
         // 注意点3: @Configuration 默认会为标注的类生成代理, 其目的是保证 @Bean 方法相互调用时, 仍然能保证其单例特性
-        /*@Bean
+        @Bean
         public Bean1 bean1() {
             System.out.println("bean1()");
             System.out.println(bean2());
             System.out.println(bean2());
             System.out.println(bean2());
             return new Bean1();
-        }*/
+        }
 
-        /*@Bean
+        @Bean
         public Bean1 bean1(@Value("${java.class.version}") String a) {
             System.out.println("bean1(" + a + ")");
             return new Bean1();
@@ -45,25 +45,25 @@ public class TestConfiguration {
         public Bean1 bean1(@Value("${java.class.version}") String a, @Value("${JAVA_HOME}") String b) {
             System.out.println("bean1(" + a + ", " + b + ")");
             return new Bean1();
-        }*/
+        }
 
-        /*@Bean
+        @Bean
         public Bean2 bean2() {
             System.out.println("bean2()");
             return new Bean2();
-        }*/
+        }
 
         // 注意点4: @Configuration 中如果含有 BeanFactory 后处理器, 则实例工厂方法会导致 MyConfig 提前创建, 造成其依赖注入失败
         // 解决方法是该用静态工厂方法或直接为 @Bean 的方法参数依赖注入, 针对 MapperScanner 可以改用注解方式
         @Value("${java.class.version}")
         private String version;
 
-        /*@Bean
+        @Bean
         public static MapperScannerConfigurer configurer() {
             MapperScannerConfigurer scanner = new MapperScannerConfigurer();
             scanner.setBasePackage("aaa");
             return scanner;
-        }*/
+        }
 
         @Bean
         public Bean3 bean3() {

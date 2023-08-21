@@ -17,6 +17,9 @@ import org.springframework.transaction.interceptor.TransactionAttributeSource;
 
 import javax.sql.DataSource;
 
+/**
+ * @author xing'chen
+ */
 @Configuration
 @PropertySource("classpath:jdbc.properties")
 @EnableTransactionManagement
