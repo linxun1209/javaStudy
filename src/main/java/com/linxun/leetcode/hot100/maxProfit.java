@@ -9,15 +9,30 @@ package com.linxun.leetcode.hot100;
 public class maxProfit {
 
 
+    /**
+     * 只能买卖一次的情况
+     * @param prices
+     * @return
+     */
+    public int maxProfit2(int[] prices) {
+        if(prices.length<1){
+            return 0;
+        }
+        int min=prices[0],max=0;
+        for (int i=1;i<prices.length;i++){
+            max=Math.max(max,prices[i]-min);
+            min=Math.min(min,prices[i]);
+        }
+        return max;
+    }
+
+
+    /**
+     * 可以买卖多次的情况
+     * @param prices
+     * @return
+     */
     public int maxProfit(int[] prices) {
-//        int ans=0;
-//        int n=prices.length;
-//        int[] dp=new int[n+1];
-//        for(int i=1;i<n;i++){
-//            if()
-//            ans=Math.max(ans,prices[i]-prices[i-1]);
-//        }
-//        return ans;
         if (prices == null || prices.length < 2) {
             return 0;
         }
