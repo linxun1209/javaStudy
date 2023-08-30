@@ -10,7 +10,7 @@ import java.io.File;
 
 public class FileRename {
     public static void main(String[] args) {
-        String folderPath = "E:\\QQfiles\\3106346586\\MyCollection\\Image"; // 文件夹路径
+        String folderPath = "D:\\聊天区\\ps打开的文件"; // 文件夹路径
         String newExtension = ".jpg"; // 新的文件后缀名
 
         // 创建表示文件夹的File对象
