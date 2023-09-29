@@ -39,5 +39,4 @@ public class filterRestaurants {
         }
         return res;
     }
-
 }
