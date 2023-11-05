@@ -40,16 +40,5 @@ public class buildTree {
             }
         }
         return root;
-
-//        int root=preorder[0];
-//        int i;
-//        for (i=0;i<inorder.length;i++){
-//            if(inorder[i]!=root){
-//                i++;
-//            }
-//        }
-//        TreeNode node=null;
-//        node.left=
-
     }
 }

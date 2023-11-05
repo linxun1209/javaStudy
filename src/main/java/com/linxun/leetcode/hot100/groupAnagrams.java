@@ -7,9 +7,17 @@ import java.util.*;
  * @version V1.0
  * @Package com.linxun.leetcode.hot100
  * @date 2023/8/4 12:59
+ *
+ * 哈希第二题
+ * 49字母异位慈湖分组
+ *
  */
 public class groupAnagrams {
-    public List<List<String>> groupAnagrams(String[] strs) {
+    public static void main(String[] args) {
+        String[] strs={"eat", "tea", "tan", "ate", "nat", "bat"};
+        groupAnagrams(strs);
+    }
+    public static List<List<String>> groupAnagrams(String[] strs) {
         HashMap<String,ArrayList<String>> map=new HashMap<>();
         for (String s:strs){
             char[] chars=s.toCharArray();
@@ -17,8 +25,8 @@ public class groupAnagrams {
             String key = String.valueOf(chars);
             if(!map.containsKey(key)){
                 map.put(key,new ArrayList<>());
-                map.get(key).add(s);
             }
+            map.get(key).add(s);
 
         }
         return new ArrayList(map.values());

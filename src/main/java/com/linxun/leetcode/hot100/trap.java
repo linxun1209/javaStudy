@@ -7,29 +7,12 @@ import java.util.Stack;
  * @version V1.0
  * @Package com.linxun.leetcode.hot
  * @date 2023/8/2 8:34
+ *
+ * 双指针4
+ * 接雨水
+ *
  */
 public class trap {
-    public int trap2(int[] height) {
-        int len=height.length;
-        int ans=0;
-        if(len<3){
-            return 0;
-        }
-        int leftMax[] =new int[len];
-        int rightMax[]=new int[len];
-        leftMax[0]=height[0];
-        rightMax[len-1]=height[len-1];
-        for (int i=1;i<len;i++){
-            leftMax[i]=Math.max(leftMax[i-1],height[i]);
-        }
-        for (int i=len-2;i>=0;i--){
-            rightMax[i]=Math.max(rightMax[i+1],height[i]);
-        }
-        for (int i=0;i<len;i++){
-            ans+=Math.min(rightMax[i],leftMax[i])-height[i];
-        }
-        return ans;
-    }
     public int trap(int[] height) {
         int len=height.length;
         int ans=0;
@@ -61,18 +44,15 @@ public class trap {
                 int top=Stack.pop();
                 if(Stack.isEmpty()){
                     break;
-
                 }
                 int distance=i-Stack.peek()-1;
                 int bought_height=Math.min(height[i],height[Stack.peek()])-
                         height[top];
                 ans+=distance*bought_height;
-
             }
             Stack.push(i++);
         }
         return ans;
-
     }
 
 

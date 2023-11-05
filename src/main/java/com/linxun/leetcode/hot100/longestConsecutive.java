@@ -10,6 +10,11 @@ import java.util.Set;
  * @version V1.0
  * @Package com.linxun.leetcode.hot100
  * @date 2023/8/23 20:23
+ *
+ *
+ * 哈希第三题
+ * 128最长连续序列
+ *
  */
 public class longestConsecutive {
 
@@ -25,7 +30,8 @@ public class longestConsecutive {
         }
         Arrays.sort(nums);
         int max=1,count=1,temp=2;
-        for (int i=1;i<nums.length;i++){
+        for (int i=1;i<nums.length;){
+            //如果有重复数字进行过滤
             if(nums[i-1]==nums[i]){
                 if(i==nums.length-1){
                     break;
@@ -36,15 +42,14 @@ public class longestConsecutive {
             if(nums[i-1]+1==nums[i]){
                 count++;
                 i++;
-            }else{
+            }else {
                 i=temp;
-                count=i;
+                count=1;
                 temp++;
                 continue;
             }
             max=Math.max(count,max);
         }
-
         return max;
     }
 
