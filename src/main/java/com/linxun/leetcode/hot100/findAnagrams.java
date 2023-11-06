@@ -9,13 +9,17 @@ import java.util.List;
  * @version V1.0
  * @Package com.linxun.leetcode.hot
  * @date 2023/3/25 21:07
+ *
+ * 滑动窗口第二题
+ * 找到字符串中所以的字母异或词
+ *
  */
 public class findAnagrams {
 
     public static void main(String[] args) {
         String s="cbaebabacd";
         String b="abc";
-        findAnagrams2(s,b);
+        findAnagrams02(s,b);
     }
 
 
@@ -62,41 +66,11 @@ public class findAnagrams {
     }
 
 
-    /**
-     *
-     * @param s
-     * @param p
-     * @return
-     */
-    public static List<Integer> findAnagrams2(String s, String p) {
-        List<Integer> res = new ArrayList<Integer>();
-        int n1 = s.length();
-        int n2 = p.length();
-        if(n2>n1){
-            return res;
-        }
-        int[] sInt = new int[26];
-        int[] pInt = new int[26];
-        for(int i=0;i<n2;i++){
-            sInt[s.charAt(i)-'a']++;
-            pInt[p.charAt(i)-'a']++;
-        }
-        if(Arrays.equals(sInt,pInt)){
-            res.add(0);
-        }
-        for(int i=n2;i<n1;i++){
-            sInt[s.charAt(i-n2)-'a']--;
-            sInt[s.charAt(i)-'a']++;
-            if(Arrays.equals(sInt,pInt)){
-                res.add(i-n2+1);
-            }
-        }
-        return res;
-    }
+
 
 
     // 滑动窗口 + 数组;维护数组内各个元素的数量，和p比较
-    public List<Integer> findAnagrams4(String s, String p) {
+    public List<Integer> findAnagrams2(String s, String p) {
         List<Integer> list =new ArrayList<>();
         int length = s.length();
         int length1 = p.length();
@@ -126,12 +100,62 @@ public class findAnagrams {
 
     }
 
+    class Solution {
+        public List<Integer> findAnagrams(String s, String p) {
+            int sLen = s.length(), pLen = p.length();
+
+            if (sLen < pLen) {
+                return new ArrayList<Integer>();
+            }
+
+            List<Integer> ans = new ArrayList<Integer>();
+            int[] count = new int[26];
+            for (int i = 0; i < pLen; ++i) {
+                ++count[s.charAt(i) - 'a'];
+                --count[p.charAt(i) - 'a'];
+            }
+
+            int differ = 0;
+            for (int j = 0; j < 26; ++j) {
+                if (count[j] != 0) {
+                    ++differ;
+                }
+            }
+
+            if (differ == 0) {
+                ans.add(0);
+            }
+
+            for (int i = 0; i < sLen - pLen; ++i) {
+                if (count[s.charAt(i) - 'a'] == 1) {  // 窗口中字母 s[i] 的数量与字符串 p 中的数量从不同变得相同
+                    --differ;
+                } else if (count[s.charAt(i) - 'a'] == 0) {  // 窗口中字母 s[i] 的数量与字符串 p 中的数量从相同变得不同
+                    ++differ;
+                }
+                --count[s.charAt(i) - 'a'];
+
+                if (count[s.charAt(i + pLen) - 'a'] == -1) {  // 窗口中字母 s[i+pLen] 的数量与字符串 p 中的数量从不同变得相同
+                    --differ;
+                } else if (count[s.charAt(i + pLen) - 'a'] == 0) {  // 窗口中字母 s[i+pLen] 的数量与字符串 p 中的数量从相同变得不同
+                    ++differ;
+                }
+                ++count[s.charAt(i + pLen) - 'a'];
+
+                if (differ == 0) {
+                    ans.add(i + 1);
+                }
+            }
+
+            return ans;
+        }
+    }
+
     // 双指针；判断右指针要添加的数是不是多余的或者不需要的
     // 若是多于，那么这个窗口减小，左指针一直到把这个删掉；这里若右指针加入的值是需要的但多于，如果左指针移动一格，即左右相等，
     // 那么添加这个索引；移动多格，长度不够了,继续右移右指针，判断长度，扩大窗口
     // 若不需要多于，左指针会移动到右指针的位置，继续右指针右移扩大窗口
     // 所以窗口内字符都不多于，当总长度相等，那么添加索引
-    public List<Integer> findAnagrams02(String s, String p) {
+    public static List<Integer> findAnagrams02(String s, String p) {
         List<Integer> list = new ArrayList<>();
         int length = p.length();
         int length1 = s.length();

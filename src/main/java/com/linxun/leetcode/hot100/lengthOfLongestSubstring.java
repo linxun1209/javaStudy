@@ -8,6 +8,10 @@ import java.util.Set;
  * @version V1.0
  * @Package com.linxun.leetcode.hot
  * @date 2023/7/22 15:34
+ *
+ * 滑动窗口第一道
+ * 无重复字符的最长字串
+ *
  */
 public class lengthOfLongestSubstring {
     public static void main(String[] args) {
@@ -34,10 +38,11 @@ public class lengthOfLongestSubstring {
         return res;
     }
     public static int lengthOfLongestSubstring2(String s) {
+        //滑动窗口维护一个窗口，右边的如果不包含就继续移动，如果包含则后面往前移动，知道遍历完毕，每次都找最大的窗口
         int res=0;
         Set<Character> set=new HashSet<>();
         int l=0,r=-1;
-        while (r+1<s.length()){
+        while (1+r<s.length()){
             if(!set.contains(s.charAt(r+1))){
                 set.add(s.charAt(r+1));
                 r++;
@@ -46,6 +51,8 @@ public class lengthOfLongestSubstring {
                 l++;
             }
             res=Math.max(res,r-l+1);
+
+
         }
         return res;
     }

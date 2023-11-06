@@ -8,12 +8,15 @@ import java.util.Map;
  * @version V1.0
  * @Package com.linxun.leetcode.hot
  * @date 2023/3/26 8:25
+ * 子串第一题
+ * 和为k的子组
+ *
  */
 public class subarraySum {
     public static void main(String[] args) {
         int[] ans={1,2,3};
         int k=3;
-        subarraySum2(ans,k);
+        subarraySum5(ans,k);
     }
     public static int subarraySum(int[] nums, int k) {
         int len=nums.length;
@@ -94,7 +97,7 @@ public class subarraySum {
      * @param k
      * @return
      */
-    public int subarraySum5(int[] nums, int k) {
+    public static int subarraySum5(int[] nums, int k) {
         int count = 0, pre = 0;
         HashMap < Integer, Integer > mp = new HashMap < > ();
         mp.put(0, 1);
