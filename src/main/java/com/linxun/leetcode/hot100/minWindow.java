@@ -5,8 +5,17 @@ package com.linxun.leetcode.hot100;
  * @version V1.0
  * @Package com.linxun.leetcode.hot100
  * @date 2023/8/12 11:52
+ * 子串第一题
+ * 最小覆盖子串
+ *
  */
 public class minWindow {
+    public static void main(String[] args) {
+        String s="ADOBECODEBANC";
+        String t="ABC";
+        minWindow(s,t);
+
+    }
     /**
      * 滑窗 + 哈希表
      *利用128位数组模拟哈希表。ht存储模板t的字母频次，在s上维护不小于t长度的窗口，hs记录窗口词频，
@@ -16,7 +25,7 @@ public class minWindow {
      * @param t
      * @return
      */
-    public String minWindow(String s, String t) {
+    public static String minWindow(String s, String t) {
         int m = s.length();
         int n = t.length();
         if (s.length() < t.length()) {
@@ -45,7 +54,45 @@ public class minWindow {
         return m<min?"":s.substring(start,end+1);
     }
 
-    private boolean check(int[] sp, int[] tp) {
+    private static boolean check(int[] sp, int[] tp) {
+        for (int i=0;i<128;i++){
+            if(sp[i]<tp[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    public  String minWindowTest(String s, String t) {
+        int m=s.length();
+        int n=t.length();
+        if(s.length()<t.length()){
+            return "";
+        }
+        int[] sp=new int[128];
+        int[] tp=new int[128];
+        for (char c:t.toCharArray()){
+            tp[c]++;
+        }
+        int min=m+1,start=-1,end=-1;
+        for (int l=0,r=0;r<m;r++){
+            sp[s.charAt(r)]++;
+            if(r<n-1){
+                continue;
+            }
+            while (check1(sp,tp)&&r-l+1>=n){
+                if(r-l+1<min){
+                    min=r-l+1;
+                    start=l;
+                    end=r;
+                }
+                sp[s.charAt(l++)]--;
+            }
+        }
+        return m<min?"":s.substring(start,end);
+    }
+    private boolean check1(int[] sp,int[] tp){
         for (int i=0;i<128;i++){
             if(sp[i]<tp[i]){
                 return false;

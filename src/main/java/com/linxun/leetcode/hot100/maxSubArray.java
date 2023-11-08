@@ -5,6 +5,11 @@ package com.linxun.leetcode.hot100;
  * @version V1.0
  * @Package com.linxun.leetcode.hot100
  * @date 2023/8/4 14:03
+ *
+ * 普通数组 第一题
+ * 最大子数组和
+ *
+ *
  */
 public class maxSubArray {
     public int maxSubArray(int[] nums) {
