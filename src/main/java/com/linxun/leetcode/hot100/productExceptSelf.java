@@ -6,6 +6,9 @@ package com.linxun.leetcode.hot100;
  * @Package com.linxun.leetcode.hot
  * @date 2023/3/19 9:21
  *
+ * 普通数组第四题
+ * 除自身意外数组的乘积
+ *
  *
  * 要求
  * 给你一个整数数组 nums，返回 数组 answer ，
@@ -18,7 +21,7 @@ package com.linxun.leetcode.hot100;
 public class productExceptSelf {
     public static void main(String[] args) {
         int[] nums={1,2,3,4};
-        productExceptSelf2(nums);
+        productExceptSelf(nums);
     }
 
 
@@ -60,6 +63,36 @@ public class productExceptSelf {
             R *= nums[i];
         }
         return answer;
+    }
+
+
+
+    public static int[] productExceptSelfTest(int[] nums) {
+//        int left=1;
+//        int right=1;
+//        int len=nums.length;
+//        int[] res=new int[len];
+//        for (int i=0;i<len;i++){
+//            res[i]=left;
+//            left*=nums[i];
+//        }
+//        for (int i=len-1;i>=0;i--){
+//            res[i]*=right;
+//            right*=nums[i];
+//        }
+//        return res;
+        int len=nums.length;
+        int[] res=new int[len];
+        res[0]=1;
+        for (int i=0;i<len;i++){
+            res[i]=res[i-1]*nums[i-1];
+        }
+        int r=1;
+        for (int i=len-1;i>=0;i--){
+            res[i]=res[i]*r;
+            r*=nums[i];
+        }
+        return res;
     }
 }
 
