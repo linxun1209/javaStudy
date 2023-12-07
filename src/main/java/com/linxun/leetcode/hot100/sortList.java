@@ -45,12 +45,14 @@ public class sortList {
         if(head==null||head.next==null){
             return head;
         }
+        //找到中间节点进行归并
         ListNode listNode=head,fast=head.next.next,l,r;
         while (fast!=null&&fast.next!=null){
             listNode=listNode.next;
             fast=fast.next.next;
         }
         r=mergeSort(listNode.next);
+        //把head断开成左右两个
         listNode.next=null;
         l=mergeSort(head);
         return mergeList(l,r);

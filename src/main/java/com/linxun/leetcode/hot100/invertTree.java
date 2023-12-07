@@ -12,6 +12,18 @@ import java.util.Queue;
  * @date 2023/3/19 9:13
  */
 public class invertTree {
+    public TreeNode invertTree(TreeNode root) {
+      if (root==null){
+          return null;
+      }
+      TreeNode leftTree = invertTree(root.left);
+      TreeNode rightTree=invertTree(root.right);
+      root.left=rightTree;
+      root.right=leftTree;
+      return root;
+    }
+
+
     /**
      * 利用前序遍历
      */

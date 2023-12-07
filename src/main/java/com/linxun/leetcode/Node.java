@@ -13,6 +13,9 @@ public class Node{
     public Node left;
     public Node right;
     public Node next;
+    public Node random;
+
+
 
     public Node() {}
 
@@ -25,5 +28,10 @@ public class Node{
         left = _left;
         right = _right;
         next = _next;
+    }
+
+    public Node(int _val,Node random) {
+        val = _val;
+        random=random;
     }
 }

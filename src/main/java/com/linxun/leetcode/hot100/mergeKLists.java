@@ -1,5 +1,7 @@
 package com.linxun.leetcode.hot100;
 
+import com.星火算法训练.压缩技术;
+
 import java.util.PriorityQueue;
 
 /**
@@ -13,28 +15,25 @@ public class mergeKLists {
         /**
          * 定义小顶堆
          */
-        PriorityQueue<ListNode> queue = new PriorityQueue<>((x, y) -> x.val - y.val);
-        for (int i = 0; i < lists.length; i++) {
-            if (lists[i] != null) {
+        PriorityQueue<ListNode> queue=new PriorityQueue<>((x,y)->x.val-y.val);
+        for (int i=0;i<lists.length;i++){
+            if(lists[i]!=null){
                 queue.offer(lists[i]);
             }
-
-
         }
-
-        ListNode temp = new ListNode(-1);
-        ListNode ans = temp;
-        while (!queue.isEmpty()) {
-            ListNode top = queue.poll();
-            ListNode node = new ListNode(top.val);
-            ans.next = node;
-            ans = ans.next;
-            ListNode next = top.next;
-            if (next != null) {
+        ListNode te=new ListNode(-1);
+        ListNode ans=te;
+        while (!queue.isEmpty()){
+            ListNode top=queue.poll();
+            ListNode node =new ListNode(top.val);
+            ans.next=node;
+            ans=ans.next;
+            ListNode next=top.next;
+            if(next!=null){
                 queue.offer(next);
             }
         }
-        return temp.next;
+        return te.next;
 
     }
 
