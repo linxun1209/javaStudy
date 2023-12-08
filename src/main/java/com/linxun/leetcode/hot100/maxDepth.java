@@ -58,7 +58,7 @@ public class maxDepth {
         if(root==null){
             return 0;
         }
-        Queue<TreeNode> queue=new LinkedList<>(){{
+        Queue<TreeNode> queue=new LinkedList<TreeNode>(){{
             add(root);
         }};
         int depth=0;
