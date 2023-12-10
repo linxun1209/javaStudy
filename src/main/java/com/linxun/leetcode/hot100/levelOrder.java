@@ -28,10 +28,10 @@ public class levelOrder {
                 TreeNode node=queue.poll();
                 ans.add(node.val);
                 if(node.left!=null){
-                    levelOrder(root.left);
+                    queue.offer(node.left);
                 }
                 if(node.right!=null){
-                    levelOrder(node.right);
+                    queue.offer(node.right);
                 }
             }
             res.add(ans);
@@ -39,4 +39,6 @@ public class levelOrder {
 
         return res;
     }
+
+
 }

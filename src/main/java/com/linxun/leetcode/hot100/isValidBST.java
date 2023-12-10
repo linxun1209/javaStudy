@@ -19,6 +19,10 @@ import java.util.List;
  *
  */
 public class isValidBST {
+
+
+
+
     /**
      * 错误
      */
@@ -36,7 +40,6 @@ public class isValidBST {
 
         }
         return true;
-
     }
 
 
@@ -70,6 +73,7 @@ public class isValidBST {
     }
 
     public boolean isValidBST4(TreeNode root) {
+
         Deque<TreeNode> stack = new LinkedList<TreeNode>();
         double inorder = -Double.MAX_VALUE;
 
@@ -85,6 +89,7 @@ public class isValidBST {
             if (root.val <= inorder) {
                 return false;
             }
+
             inorder = root.val;
             root = root.right;
         }
