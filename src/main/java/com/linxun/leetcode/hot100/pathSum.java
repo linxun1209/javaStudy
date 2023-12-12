@@ -39,7 +39,6 @@ public class pathSum {
         }
         add(node.left,sum);
         add(node.right,sum);
-
     }
 
 
@@ -68,7 +67,6 @@ public class pathSum {
         ret += dfs(root.left, prefix, curr, targetSum);
         ret += dfs(root.right, prefix, curr, targetSum);
         prefix.put(curr, prefix.getOrDefault(curr, 0) - 1);
-
         return ret;
     }
 
@@ -107,5 +105,29 @@ public class pathSum {
     }
 
 
+
+    public int pathSum4(TreeNode root, int targetSum) {
+        if(root==null){
+            return 0;
+        }
+        int rex=rootSum2(root,targetSum);
+        rex+=pathSum4(root.left,targetSum);
+        rex+=pathSum4(root.right,targetSum);
+        return rex;
+
+    }
+    public static int rootSum2(TreeNode root, int targetSum) {
+        int res=0;
+        if (root==null){
+            return 0;
+        }
+        int val=root.val;
+        if(val==targetSum){
+            res++;
+        }
+        res+=rootSum2(root.left,targetSum-val);
+        res+=rootSum2(root.right,targetSum-val);
+        return res;
+    }
 
 }

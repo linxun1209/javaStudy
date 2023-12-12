@@ -44,17 +44,14 @@ public class maxPathSum {
 
 
     int maxSum = Integer.MIN_VALUE;
-
     public int maxPathSum3(TreeNode root) {
         maxGain2(root);
         return maxSum;
     }
-
     public int maxGain2(TreeNode node) {
         if (node == null) {
             return 0;
         }
-
         // 递归计算左右子节点的最大贡献值
         // 只有在最大贡献值大于 0 时，才会选取对应子节点
         int leftGain = Math.max(maxGain(node.left), 0);
