@@ -42,6 +42,7 @@ public class TopK {
             }
         }
         // 出队将结果放入数组中返回
+
         int[] result = new int[k];
         for (int i = 0; i < k; i++) {
             result[i] = queue.poll();
