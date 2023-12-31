@@ -16,6 +16,33 @@ public class letterCombinations {
     //设置全局列表存储最后的结果
     List<String> list = new ArrayList<>();
 
+
+
+    public List<String> letterCombinations2(String digits) {
+        if(digits==null||digits.length()==0){
+            return list;
+        }
+        //模拟案件手机的键盘
+        String[] numString = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        backend1(digits,numString,0);
+        return list;
+    }
+
+
+    StringBuilder temp1 = new StringBuilder();
+    private void backend1(String digits,String[] numString,int k){
+        if (digits.length()==k){
+            list.add(temp1.toString());
+            return;
+        }
+        String s = numString[digits.charAt(k) - '0'];
+        for (int i=0;i<s.length();i++){
+            temp1.append(s.charAt(i));
+            backend1(digits,numString,k+1);
+            temp1.deleteCharAt(temp1.length()-1);
+        }
+    }
+
     public List<String> letterCombinations(String digits) {
         if (digits == null || digits.length() == 0) {
             return list;
@@ -25,7 +52,6 @@ public class letterCombinations {
         //迭代处理
         backTracking(digits, numString, 0);
         return list;
-
     }
 
     //每次迭代获取一个字符串，所以会设计大量的字符串拼接，所以这里选择更为高效的 StringBuild
