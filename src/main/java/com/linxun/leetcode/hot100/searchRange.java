@@ -25,26 +25,9 @@ public class searchRange {
         return new int[]{-1,-1};
     }
 
-    public int[] searchRange(int[] nums, int target) {
 
-        int left=0,right=nums.length-1;
-        while(left<=right){
-            while(left<right&&nums[left]<target){
-                left++;
 
-            }while(left<right&&nums[right]>target){
-                right--;
 
-            }
-            if(nums[left]==target&&nums[right]==target){
-                return new int[]{left,right};
-
-            }else{
-                break;
-            }
-        }
-        return new int[]{-1,-1};
-    }
 
     public int[] searchRange3(int[] nums, int target) {
         int[] res=new int[]{-1,1};
@@ -53,6 +36,37 @@ public class searchRange {
         return res;
 
     }
+
+
+    public int[] searchRange4(int[] nums, int target) {
+        int[] ans=new int[]{-1,1};
+        ans[0]=binarySearch1(nums,target,true);
+        ans[1]=binarySearch1(nums,target,false);
+        return ans;
+
+    }
+
+    private int binarySearch1(int[] nums, int target, boolean leftOrRight) {
+        int res=-1;
+        int left=0,right=nums.length-1;
+        while (left<=right){
+            int mid=left+(right-left)/2;
+            if(target<nums[mid]){
+                right=mid-1;
+            }else if(target>nums[mid]){
+                left=mid+1;
+            }else {
+                res=mid;
+                if(leftOrRight){
+                    right=mid-1;
+                }else {
+                    left=mid+1;
+                }
+            }
+        }
+        return res;
+    }
+
     public int binarySearch(int[] nums,int target,boolean leftOrRight){
         int res=-1;
         int left=0,right=nums.length-1,mid;

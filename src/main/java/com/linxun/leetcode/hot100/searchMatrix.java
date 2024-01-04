@@ -11,6 +11,27 @@ package com.linxun.leetcode.hot100;
  *
  */
 public class searchMatrix {
+
+
+    public boolean searchMatrix3(int[][] matrix, int target) {
+        if(matrix==null||matrix.length==0){
+            return false;
+        }
+        int left=0;
+        int right=matrix.length-1;
+        while (left<matrix.length&&right>=0){
+            if(matrix[left][right]==target){
+                return true;
+            }
+            else if(matrix[left][right]>target){
+                right--;
+            }else {
+                left++;
+            }
+
+        }
+        return false;
+    }
     public boolean searchMatrix(int[][] matrix, int target) {
 
         //左下角的元素是这一行中最小的元素，同时又是这一列中最大的元素。比较左下角元素和目标：
