@@ -32,7 +32,6 @@ public class dailyTemperatures {
             }
         }
         return ans;
-
     }
 
 
@@ -49,10 +48,15 @@ public class dailyTemperatures {
      * 时间复杂度：O(n)
      * 空间复杂度：O(n)
      */
+
+
+
     public static int[] dailyTemperatures2(int[] T) {
         int[] res = new int[T.length];
         res[T.length - 1] = 0;
+        //倒数第二个开始
         for (int i = T.length - 2; i >= 0; i--) {
+            //倒数第一个开始
             for (int j = i + 1; j < T.length; j += res[j]) {
                 if (T[i] < T[j]) {
                     res[i] = j - i;
