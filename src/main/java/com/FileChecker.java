@@ -14,7 +14,7 @@ import java.io.IOException;
 public class FileChecker {
 
     public static void main(String[] args) {
-        String folderPath = "E:\\Test"; // 替换为要检查的文件夹路径
+        String folderPath = "D:\\wx\\WeChat Files\\wxid_2gnnpm0oh08i22\\FileStorage\\Video\\2023-10"; // 替换为要检查的文件夹路径
 
         String targetFolderPath = "F:\\MP4"; // 目标文件夹的路径
 
@@ -24,7 +24,7 @@ public class FileChecker {
         for(File file:files1){
             if (file.exists() && file.isDirectory()) {
                 if (file != null) {
-                    fileCopy(file);
+//                    fileCopy(file);
 //                    deleteFile(file);
                 } else {
                     deleteFile(file);
@@ -41,6 +41,24 @@ public class FileChecker {
 
         // 生成统计文件的相关代码...
     }
+
+    public static void deleteJPGFile(File file) {
+        if (file.isDirectory()) {
+            File[] files = file.listFiles();
+            if (files != null&&file.equals(".jpg")) {
+                for (File f : files) {
+                    deleteFile(f); // 递归删除子文件或子文件夹
+                }
+            }
+        }
+
+        if (file.delete()) {
+            System.out.println("文件删除成功：" + file.getAbsolutePath());
+        } else {
+            System.out.println("文件删除失败：" + file.getAbsolutePath());
+        }
+    }
+
 
     public static void deleteFile(File file) {
         if (file.isDirectory()) {

@@ -11,6 +11,7 @@ public class canJump {
         int[] nums ={3,2,1,0,4};
         canJump2(nums);
     }
+
     public boolean canJump(int[] nums) {
         if(nums.length==1){
             return true;
@@ -56,5 +57,27 @@ public class canJump {
             }
         }
         return true;
+    }
+
+
+
+
+    public boolean canJump3(int[] nums) {
+        //步长
+        int step = 0;
+        for (int i = 0; i < nums.length; i++) {
+            //取当前步长和剩余步长较大的一个
+            step = Math.max(nums[i], step);
+            if (i + nums[i] >= nums.length - 1) {
+                return true;
+            }
+            //步长为0意味着不能继续向下走
+            if (step == 0) {
+                return false;
+            }
+            //走一步步长减一
+            step--;
+        }
+        return false;
     }
 }
