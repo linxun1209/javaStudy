@@ -60,7 +60,7 @@ public class coinChange {
             recursion(coins, amount, 0, coins.length - 1);
             return minCount == Integer.MAX_VALUE ? -1 : minCount;
         }
-                int minCount = Integer.MAX_VALUE;
+        int minCount = Integer.MAX_VALUE;
         /**
          * 1、按金额从大到小，从多到少（排序，用余数一步到位）
          * 2、预判低于最优解，终止递归（可以返回最优解，不过提升有限，意义不大）
