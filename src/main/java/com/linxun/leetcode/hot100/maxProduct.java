@@ -9,42 +9,32 @@ import java.util.Map;
  * @date 2023/8/26 19:09
  */
 public class maxProduct {
+    /**
+     * 正序逆序都遍历一遍，取两者的最大值返回
+     * @param nums
+     * @return
+     */
     public int maxProduct(int[] nums) {
-        int ans=1;
-        int max=nums[0];
-        for (int a:nums){
-            ans=ans*a;
-            if(ans>max){
-                max=ans;
+        int ans = 1;
+        int max = nums[0];
+        for (int a : nums) {
+            ans = ans * a;
+            if (ans > max) {
+                max = ans;
             }
-            if(a==0){
-                ans=1;
-            }
-        }
-        ans=1;
-        for (int i=nums.length-1;i>=0;i--){
-            ans*=nums[i];
-            if(max<ans){
-                max=ans;
-            }
-            if(nums[i]==0){
-                ans=1;
+            if (a == 0) {
+                ans = 1;
             }
         }
-        return ans;
-    }
-
-    public int maxProduct1(int[] nums) {
-        int max=Integer.MIN_VALUE,minl=1,maxl=1;
-        for (int i=0;i<nums.length;i++){
-            if(nums[i]<0){
-                int temp=maxl;
-                maxl=minl;
-                minl=temp;
+        ans = 1;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            ans *= nums[i];
+            if (max < ans) {
+                max = ans;
             }
-            maxl=Math.max(maxl*nums[i],nums[i]);
-            minl=Math.min(minl*nums[i],nums[i]);
-            max=Math.max(maxl,minl);
+            if (nums[i] == 0) {
+                ans = 1;
+            }
         }
         return max;
     }
@@ -65,5 +55,4 @@ public class maxProduct {
         }
         return max;
     }
-
 }
