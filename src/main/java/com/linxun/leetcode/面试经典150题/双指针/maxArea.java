@@ -1,10 +1,10 @@
-package com.linxun.leetcode.hot100;
+package com.linxun.leetcode.面试经典150题.双指针;
 
 /**
- * @author xingchen
- * @version V1.0
- * @Package com.linxun.leetcode.hot
- * @date 2023/7/22 17:13
+ * @author xing'chen
+ * @version 1.0
+ * @description: 11. 盛最多水的容器
+ * @date 2024/3/8 23:19
  */
 public class maxArea {
     public static void main(String[] args) {
