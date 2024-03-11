@@ -1,5 +1,7 @@
 package com.linxun.leetcode.面试经典150题.哈希表;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,6 +52,8 @@ public class isIsomorphic {
 
         return true;
     }
+
+
 
 
     public boolean isIsomorphic3(String s, String t) {
