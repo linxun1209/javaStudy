@@ -22,17 +22,11 @@ public class LRUCache {
             }
         };
     }
-
     public int get(int key) {
         return cache.getOrDefault(key, -1);
     }
-
     public void put(int key, int value) {
         cache.put(key, value);
     }
-
-
-
-
 }
 
