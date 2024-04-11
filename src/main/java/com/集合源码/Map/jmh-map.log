@@ -1,0 +1,183 @@
+# JMH version: 1.23
+# VM version: JDK 1.8.0_341, Java HotSpot(TM) 64-Bit Server VM, 25.341-b10
+# VM invoker: D:\java1.8\jre\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA 2023.2.5\lib\idea_rt.jar=62446:D:\IntelliJ IDEA 2023.2.5\bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.集合源码.Map.HashMapCycleTest.entrySet
+
+# Run progress: 0.00% complete, ETA 00:00:42
+# Fork: 1 of 1
+# Warmup Iteration   1: 494.859 ns/op
+# Warmup Iteration   2: 495.486 ns/op
+Iteration   1: 563.908 ns/op
+Iteration   2: 643.320 ns/op
+Iteration   3: 557.696 ns/op
+Iteration   4: 669.809 ns/op
+Iteration   5: 550.841 ns/op
+
+
+Result "com.集合源码.Map.HashMapCycleTest.entrySet":
+  597.115 ±(99.9%) 212.808 ns/op [Average]
+  (min, avg, max) = (550.841, 597.115, 669.809), stdev = 55.266
+  CI (99.9%): [384.306, 809.923] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 1.8.0_341, Java HotSpot(TM) 64-Bit Server VM, 25.341-b10
+# VM invoker: D:\java1.8\jre\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA 2023.2.5\lib\idea_rt.jar=62446:D:\IntelliJ IDEA 2023.2.5\bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.集合源码.Map.HashMapCycleTest.forEachEntrySet
+
+# Run progress: 16.67% complete, ETA 00:00:42
+# Fork: 1 of 1
+# Warmup Iteration   1: 508.490 ns/op
+# Warmup Iteration   2: 464.516 ns/op
+Iteration   1: 560.068 ns/op
+Iteration   2: 541.667 ns/op
+Iteration   3: 572.272 ns/op
+Iteration   4: 533.638 ns/op
+Iteration   5: 524.797 ns/op
+
+
+Result "com.集合源码.Map.HashMapCycleTest.forEachEntrySet":
+  546.488 ±(99.9%) 74.767 ns/op [Average]
+  (min, avg, max) = (524.797, 546.488, 572.272), stdev = 19.417
+  CI (99.9%): [471.721, 621.255] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 1.8.0_341, Java HotSpot(TM) 64-Bit Server VM, 25.341-b10
+# VM invoker: D:\java1.8\jre\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA 2023.2.5\lib\idea_rt.jar=62446:D:\IntelliJ IDEA 2023.2.5\bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.集合源码.Map.HashMapCycleTest.forEachKeySet
+
+# Run progress: 33.33% complete, ETA 00:00:33
+# Fork: 1 of 1
+# Warmup Iteration   1: 1400.237 ns/op
+# Warmup Iteration   2: 1599.354 ns/op
+Iteration   1: 1128.054 ns/op
+Iteration   2: 1113.087 ns/op
+Iteration   3: 1090.894 ns/op
+Iteration   4: 1137.056 ns/op
+Iteration   5: 1114.683 ns/op
+
+
+Result "com.集合源码.Map.HashMapCycleTest.forEachKeySet":
+  1116.755 ±(99.9%) 67.424 ns/op [Average]
+  (min, avg, max) = (1090.894, 1116.755, 1137.056), stdev = 17.510
+  CI (99.9%): [1049.331, 1184.179] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 1.8.0_341, Java HotSpot(TM) 64-Bit Server VM, 25.341-b10
+# VM invoker: D:\java1.8\jre\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA 2023.2.5\lib\idea_rt.jar=62446:D:\IntelliJ IDEA 2023.2.5\bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.集合源码.Map.HashMapCycleTest.keySet
+
+# Run progress: 50.00% complete, ETA 00:00:25
+# Fork: 1 of 1
+# Warmup Iteration   1: 1341.462 ns/op
+# Warmup Iteration   2: 1445.381 ns/op
+Iteration   1: 1124.204 ns/op
+Iteration   2: 1066.724 ns/op
+Iteration   3: 1040.637 ns/op
+Iteration   4: 1046.724 ns/op
+Iteration   5: 1069.979 ns/op
+
+
+Result "com.集合源码.Map.HashMapCycleTest.keySet":
+  1069.654 ±(99.9%) 127.015 ns/op [Average]
+  (min, avg, max) = (1040.637, 1069.654, 1124.204), stdev = 32.985
+  CI (99.9%): [942.639, 1196.668] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 1.8.0_341, Java HotSpot(TM) 64-Bit Server VM, 25.341-b10
+# VM invoker: D:\java1.8\jre\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA 2023.2.5\lib\idea_rt.jar=62446:D:\IntelliJ IDEA 2023.2.5\bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.集合源码.Map.HashMapCycleTest.lambda
+
+# Run progress: 66.67% complete, ETA 00:00:16
+# Fork: 1 of 1
+# Warmup Iteration   1: 351.846 ns/op
+# Warmup Iteration   2: 348.284 ns/op
+Iteration   1: 530.871 ns/op
+Iteration   2: 519.646 ns/op
+Iteration   3: 560.879 ns/op
+Iteration   4: 534.813 ns/op
+Iteration   5: 523.075 ns/op
+
+
+Result "com.集合源码.Map.HashMapCycleTest.lambda":
+  533.857 ±(99.9%) 62.631 ns/op [Average]
+  (min, avg, max) = (519.646, 533.857, 560.879), stdev = 16.265
+  CI (99.9%): [471.226, 596.488] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 1.8.0_341, Java HotSpot(TM) 64-Bit Server VM, 25.341-b10
+# VM invoker: D:\java1.8\jre\bin\java.exe
+# VM options: -javaagent:D:\IntelliJ IDEA 2023.2.5\lib\idea_rt.jar=62446:D:\IntelliJ IDEA 2023.2.5\bin -Dfile.encoding=UTF-8
+# Warmup: 2 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.集合源码.Map.HashMapCycleTest.streamApi
+
+# Run progress: 83.33% complete, ETA 00:00:08
+# Fork: 1 of 1
+# Warmup Iteration   1: 919.666 ns/op
+# Warmup Iteration   2: 883.147 ns/op
+Iteration   1: 854.122 ns/op
+Iteration   2: 837.724 ns/op
+Iteration   3: 809.426 ns/op
+Iteration   4: 816.170 ns/op
+Iteration   5: 854.276 ns/op
+
+
+Result "com.集合源码.Map.HashMapCycleTest.streamApi":
+  834.344 ±(99.9%) 80.567 ns/op [Average]
+  (min, avg, max) = (809.426, 834.344, 854.276), stdev = 20.923
+  CI (99.9%): [753.777, 914.911] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:00:50
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark                             Mode  Cnt     Score     Error  Units
+Map.HashMapCycleTest.entrySet         avgt    5   597.115 ± 212.808  ns/op
+Map.HashMapCycleTest.forEachEntrySet  avgt    5   546.488 ±  74.767  ns/op
+Map.HashMapCycleTest.forEachKeySet    avgt    5  1116.755 ±  67.424  ns/op
+Map.HashMapCycleTest.keySet           avgt    5  1069.654 ± 127.015  ns/op
+Map.HashMapCycleTest.lambda           avgt    5   533.857 ±  62.631  ns/op
+Map.HashMapCycleTest.streamApi        avgt    5   834.344 ±  80.567  ns/op
