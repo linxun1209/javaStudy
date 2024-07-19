@@ -29,6 +29,12 @@
     </dependency>
 
     <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>4.3.11.RELEASE</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.redisson</groupId>
       <artifactId>redisson-spring-boot-starter</artifactId>
       <version>3.13.1</version>
@@ -122,12 +128,10 @@
           <groupId>junit</groupId>
           <artifactId>junit</artifactId>
       </dependency>
-      <!--<dependency>
-          <groupId>org.springframework</groupId>
-          <artifactId>spring-context-indexer</artifactId>
-          <optional>true</optional>
-      </dependency>-->
   </dependencies>
+
+
+
 
   <dependencyManagement>
     <dependencies>
