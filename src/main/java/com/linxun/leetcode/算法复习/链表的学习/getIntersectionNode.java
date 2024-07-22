@@ -48,5 +48,15 @@ public class getIntersectionNode {
         }
         return temp;
     }
+
+
+    ListNode getIntersectionNode3(ListNode headA, ListNode headB) {
+        ListNode A = headA,B = headB;
+        while(A!=B){
+            A = A != null ? A.next:headB;
+            B = B != null ? B.next:headA;
+        }
+        return A;
+    }
 }
 
