@@ -1,5 +1,7 @@
 package com.linxun.leetcode.面试经典150题.二分查找;
 
+import java.util.Arrays;
+
 /**
  * @author xing'chen
  * @version 1.0
@@ -16,9 +18,58 @@ package com.linxun.leetcode.面试经典150题.二分查找;
  */
 public class findMin {
     public int findMin(int[] nums) {
+        Arrays.sort(nums);
+        return nums[0];
+
+    }
+
+    public int findMin2(int[] nums){
+        int left=0,right=nums.length-1;
+        while (left<=right){
+            int mid=(left+right)>>>1;
+            if(nums[mid]<=nums[nums.length-1]){
+                right=mid-1;
+            }else {
+                left=mid+1;
+            }
+        }
+        return nums[left];
+    }
 
 
-        return 0;
+    int res1=Integer.MAX_VALUE;
+    public int findMin4(int[] nums) {
+        int left=0,right=nums.length;
+        while (left<=right){
+            int mid=(left+right)>>>1;
+            if(nums[left]<=nums[mid]){
+                res1=Integer.min(res1,nums[left]);
+                left=mid+1;
+            }else {
+                res1=Integer.min(res1,nums[right]);
+                right=mid-1;
+            }
+
+        }
+        return res1;
+    }
+
+
+    int res = Integer.MAX_VALUE;
+    public int findMin3(int[] nums) {
+        int left = 0, right = nums.length - 1;
+        while(left <= right){
+            int mid = (left + right) >>> 1;
+            //左数组有序,增大,最小值只可能在左数组的最左端
+            if(nums[left] <= nums[mid]){
+                res = Integer.min(res, nums[left]);
+                left = mid + 1;
+            }else {//右数组有序,最小值可能在右数组的最左端mid,也可能在左边
+                res = Integer.min(res, nums[mid]);
+                right = mid - 1;
+            }
+        }
+        return res;
     }
 }
 
