@@ -12,6 +12,23 @@ package com.linxun.leetcode.hot100;
  */
 public class searchMatrix {
 
+    public boolean searchMatrix4(int[][] matrix, int target) {
+        if(matrix==null||matrix.length==0){
+            return false;
+        }
+        int n=matrix.length,m=matrix[0].length-1;
+        while (n<=matrix.length&&m>=0){
+          if(matrix[n][m]==target){
+              return true;
+          }else if(matrix[n][m]>target){
+              m--;
+          }else {
+              n++;
+          }
+        }
+        return false;
+    }
+
 
     public boolean searchMatrix3(int[][] matrix, int target) {
         if(matrix==null||matrix.length==0){

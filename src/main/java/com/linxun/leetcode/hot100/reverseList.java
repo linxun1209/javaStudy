@@ -1,7 +1,5 @@
 package com.linxun.leetcode.hot100;
 
-import com.sun.org.apache.bcel.internal.generic.LUSHR;
-
 /**
  * @author xingchen
  * @version V1.0
@@ -15,6 +13,24 @@ public class reverseList {
      * @return
      */
 
+
+
+
+    public ListNode reverseList4(ListNode head) {
+        ListNode fast=head;
+        ListNode slow=null;
+        while (fast != null) {
+            ListNode next=fast.next;
+            fast.next=slow;
+            slow=fast;
+            fast=next;
+
+        }
+        return slow;
+
+
+
+    }
     public ListNode reverseList(ListNode head) {
         //头节点
         ListNode fast=head;

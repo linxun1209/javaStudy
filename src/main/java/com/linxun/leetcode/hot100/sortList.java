@@ -33,8 +33,6 @@ public class sortList {
             pre.next.val=ans.get(i++);
         }
         return pre;
-
-
     }
 
     public ListNode sortList2(ListNode head) {

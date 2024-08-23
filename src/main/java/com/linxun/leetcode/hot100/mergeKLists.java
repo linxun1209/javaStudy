@@ -1,7 +1,5 @@
 package com.linxun.leetcode.hot100;
 
-import com.星火算法训练.压缩技术;
-
 import java.util.PriorityQueue;
 
 /**
@@ -11,6 +9,36 @@ import java.util.PriorityQueue;
  * @date 2023/7/29 18:29
  */
 public class mergeKLists {
+
+    public ListNode mergeKLists5(ListNode[] lists) {
+        ListNode ans=null;
+        for (int i=0;i< lists.length;i++){
+            ans=mergeTwoLists2(ans,lists[i]);
+        }
+        return ans;
+    }
+
+    private ListNode mergeTwoLists2(ListNode ans, ListNode list) {
+        if(ans==null||list==null){
+            return ans==null?list:ans;
+        }
+        ListNode head=new ListNode(0);
+        ListNode node =head,tailA=ans,tailB=list;
+        while (tailA!=null&&tailB!=null){
+            if (tailA.val>=tailB.val){
+                node.next=tailB;
+                tailB= tailB.next;
+            }else {
+                node.next=tailA;
+                tailA= tailA.next;
+            }
+            node=node.next;
+        }
+        node.next = (tailA != null ? tailA : tailB);
+        return node.next;
+    }
+
+
     public ListNode mergeKLists(ListNode[] lists) {
         /**
          * 定义小顶堆

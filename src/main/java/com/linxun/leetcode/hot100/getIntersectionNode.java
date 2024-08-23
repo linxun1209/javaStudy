@@ -1,5 +1,8 @@
 package com.linxun.leetcode.hot100;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author xingchen
  * @version V1.0
@@ -7,6 +10,43 @@ package com.linxun.leetcode.hot100;
  * @date 2023/11/1 20:56
  */
 public class getIntersectionNode {
+
+    public ListNode getIntersectionNode3(ListNode headA, ListNode headB) {
+        Set<ListNode> set=new HashSet<>();
+        ListNode temp=headA;
+        while (temp!=null){
+            set.add(temp);
+            temp=temp.next;
+        }
+        temp=headB;
+        while (temp!=null){
+            if(set.contains(temp)){
+                return temp;
+            }
+            temp=temp.next;
+
+
+        }
+        return null;
+
+
+
+    }
+
+
+    public ListNode getIntersectionNode2(ListNode headA, ListNode headB) {
+
+        if(headA==null||headB==null){
+            return null;
+        }
+        ListNode pa=headA,pb=headB;
+        while (pa!=pb){
+            pa=pa==null?headB:pa.next;
+            pb=pb==null?headA:pb.next;
+        }
+       return pa;
+    }
+
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         /**
          定义两个指针, 第一轮让两个到达末尾的节点指向另一个链表的头部,

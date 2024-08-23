@@ -12,6 +12,21 @@ package com.linxun.leetcode.hot100;
  */
 public class rotate {
 
+    public void rotate4(int[][] matrix) {
+        int n=matrix.length,m=matrix[0].length;
+        int[][] newmatrix=new int[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                newmatrix[j][n-i-1]=matrix[i][j];
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                matrix[i][j]=newmatrix[i][j];
+            }
+        }
+    }
+
 
     public void rotate3(int[][] matrix) {
         for (int i=0;i<matrix.length;i++){
