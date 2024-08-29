@@ -9,6 +9,7 @@ import java.util.*;
  * @date 2023/8/4 15:08
  */
 public class merge {
+
     public int[][] merge(int[][] intervals) {
         LinkedList<int[]> res=new LinkedList<>();
         Arrays.sort(intervals,((o1, o2) ->Integer.compare(o1[0],o2[0])));

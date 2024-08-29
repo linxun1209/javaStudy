@@ -9,8 +9,20 @@ package com.linxun.leetcode.hot100;
 public class maxArea {
     public static void main(String[] args) {
         int[] height={1,8,6,2,5,4,8,3,7};
-        maxArea(height);
+        maxArea2(height);
     }
+
+    public static int maxArea4(int[] height) {
+        int i=0,j=height.length-1,res=0;
+        while (i<j){
+            res=height[i]<height[j]
+                    ?
+                    Math.max(res,(j-i)*height[i++])
+                    :Math.max(res,(j-i)*height[j++]);
+        }
+        return res;
+    }
+
     public static int maxArea(int[] height) {
         int i=0,j=height.length-1,res=0;
         while (i<j){
@@ -23,7 +35,7 @@ public class maxArea {
         return res;
     }
 
-    public int maxArea2(int[] height) {
+    public static int maxArea2(int[] height) {
         int l = 0, r = height.length - 1;
         int maxArea = 0;
         while (l < r) {
@@ -39,6 +51,5 @@ public class maxArea {
             }
         }
         return maxArea;
-
     }
 }

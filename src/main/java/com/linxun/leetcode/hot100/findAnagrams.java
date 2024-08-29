@@ -19,7 +19,7 @@ public class findAnagrams {
     public static void main(String[] args) {
         String s="cbaebabacd";
         String b="abc";
-        findAnagrams02(s,b);
+        findAnagrams2(s,b);
     }
 
 
@@ -29,6 +29,30 @@ public class findAnagrams {
      * @param p
      * @return
      */
+
+
+    public static List<Integer> findAnagrams4(String s, String p) {
+        int[] target=new int[26];
+        for (int i = 0; i < p.length(); i++) {
+            target[p.charAt(i)-'a']++;
+        }
+        int left=0,right=0;
+        int[] window=new int[26];
+        List<Integer> list=new ArrayList<>();
+        while(right<s.length()){
+            window[s.charAt(right)-'a']++;
+            if(right-left+1==p.length()){
+                if(Arrays.equals(window,target)){
+                    list.add(left);
+                }
+                window[s.charAt(left)-'a']++;
+                left++;
+            }
+            right++;
+        }
+        return list;
+    }
+
     public static List<Integer> findAnagrams(String s, String p) {
         //在长度为26的int数组target中存储字符串p中对应字符（a~z）出现的次数
         //如p="abc",则target为[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
@@ -70,7 +94,7 @@ public class findAnagrams {
 
 
     // 滑动窗口 + 数组;维护数组内各个元素的数量，和p比较
-    public List<Integer> findAnagrams2(String s, String p) {
+    public static List<Integer> findAnagrams2(String s, String p) {
         List<Integer> list =new ArrayList<>();
         int length = s.length();
         int length1 = p.length();

@@ -16,7 +16,7 @@ import java.util.Set;
 
 
 public class setZeroes {
-    public void setZeroes(int[][] matrix) {
+    public static void setZeroes(int[][] matrix) {
         int m = matrix.length, n = matrix[0].length;
         boolean flagCol0 = false;
         for (int i = 0; i < m; i++) {
@@ -44,7 +44,7 @@ public class setZeroes {
 
     public static void main(String[] args) {
         int[][] matrix = {{1,1,1},{1,0,1},{1,1,1}};
-        setZeroes2(matrix);
+        setZeroes(matrix);
     }
     public static void setZeroes2(int[][] matrix) {
 
@@ -101,6 +101,8 @@ public class setZeroes {
             }
         }
     }
+
+
 
     public void setZeroes4(int[][] matrix) {
         int m = matrix.length;

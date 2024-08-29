@@ -21,7 +21,7 @@ package com.linxun.leetcode.hot100;
 public class productExceptSelf {
     public static void main(String[] args) {
         int[] nums={1,2,3,4};
-        productExceptSelf(nums);
+        productExceptSelfTest(nums);
     }
 
 
@@ -84,7 +84,7 @@ public class productExceptSelf {
         int len=nums.length;
         int[] res=new int[len];
         res[0]=1;
-        for (int i=0;i<len;i++){
+        for (int i=1;i<len;i++){
             res[i]=res[i-1]*nums[i-1];
         }
         int r=1;

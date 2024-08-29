@@ -18,6 +18,25 @@ public class lengthOfLongestSubstring {
         String s="pwwkew";
         System.out.println(lengthOfLongestSubstring(s));
     }
+
+
+
+    public int lengthOfLongestSubstring4(String s) {
+        int res=0;
+        Set<Character> set=new HashSet<>();
+        int l=0,r=-1;
+        while (l+r<s.length()){
+            if(!set.contains(s.charAt(r+1))){
+                set.add(s.charAt(r+1));
+                r++;
+            }else {
+                set.remove(s.charAt(l));
+                l++;
+            }
+            res=Math.max(res,r-l+1);
+        }
+        return res;
+    }
     public static int lengthOfLongestSubstring(String s) {
         //-1相当于没有出现过
         //128表示二级制的最大值

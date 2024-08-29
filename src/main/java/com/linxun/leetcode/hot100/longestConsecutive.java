@@ -1,6 +1,5 @@
 package com.linxun.leetcode.hot100;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +16,34 @@ import java.util.Set;
  *
  */
 public class longestConsecutive {
+
+    public int longestConsecutive4(int[] nums) {
+        if(nums==null||nums.length==0){
+            return 0;
+        }
+        Arrays.sort(nums);
+        int max=1,count=1,temp=2;
+        for (int i = 1; i < nums.length;) {
+            if(nums[i]==nums[i-1]){
+               if(i==nums.length-1){
+                   break;
+               }
+               i++;
+               continue;
+            }
+            if(nums[i-1]+1==nums[i]){
+                count++;
+                i++;
+            }else {
+                i=temp;
+                count=1;
+                temp++;
+                continue;
+            }
+            max=Math.max(max,count);
+        }
+        return max;
+    }
 
     /**
      * 方法一
@@ -79,4 +106,26 @@ public class longestConsecutive {
         }
             return longStreak;
     }
+
+    public int longestConsecutive5(int[] nums) {
+        Set<Integer> set=new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            set.add(nums[i]);
+        }
+        int longStreak=0;
+        for (int nums_set2:set){
+            if (!set.contains(nums_set2 - 1)) {
+                int currentNum = nums_set2;
+                int currentStreak = 1;
+                while (set.contains(currentNum + 1)) {
+                    currentNum += 1;
+                    currentStreak += 1;
+                }
+                longStreak=Math.max(longStreak,currentStreak);
+            }
+
+        }
+        return longStreak;
+    }
+
 }

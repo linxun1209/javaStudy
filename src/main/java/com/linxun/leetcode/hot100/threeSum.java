@@ -11,6 +11,34 @@ import java.util.List;
  * @date 2023/7/22 17:33
  */
 public class threeSum {
+
+    public List<List<Integer>> threeSum4(int[] nums) {// 总时间复杂度：O(n^2)
+        Arrays.sort(nums);
+        List<List<Integer>> res=new ArrayList<>();
+        for (int i = 0; i < nums.length-2; i++) {
+            if(nums[i]>0){
+                break;
+            }
+            if(i>=0&&nums[i]==nums[i-1]){
+                continue;
+            }
+            int k=i+1,j=nums.length-1;
+            while(k<j){
+                int sum=nums[i]+nums[k]+nums[j];
+                if(sum<0){
+                    while (k<j&&nums[k]==nums[k++]);
+                }else if(sum>0){
+                    while (k<j&&nums[j]==nums[j--]);
+                }else {
+                    res.add(new ArrayList<>(Arrays.asList(nums[i],nums[k],nums[j])));
+                    while(k<j&&nums[k]==nums[k++]);
+                    while(k<j&&nums[j]==nums[j--]);
+                }
+            }
+        }
+        return res;
+    }
+
     public List<List<Integer>> threeSum(int[] nums) {// 总时间复杂度：O(n^2)
         List<List<Integer>> ans = new ArrayList<>();
         if (nums == null || nums.length <= 2) {
@@ -52,5 +80,36 @@ public class threeSum {
             }
         }
         return ans;
+    }
+    public List<List<Integer>> threeSum3(int[] nums) {
+        //这题采用双指针
+        //首先先进行排序
+        Arrays.sort(nums);
+        //定义一个结果集合
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        //这里的nums.length-2是为了保证最后还有两个数
+        for(int k = 0; k < nums.length - 2; k++){
+            //如果nums[k]>0的话那后面的值一定不会等于0，因为已经提前排好序了
+            if(nums[k] > 0) break;
+            //这里去重
+            if(k > 0 && nums[k] == nums[k - 1]) continue;
+            //定义双指针
+            int i = k + 1, j = nums.length - 1;
+            while(i < j){
+                //三数相加
+                int sum = nums[k] + nums[i] + nums[j];
+                if(sum < 0) {
+                    //如果相加的和小于0，左指针前进并去重
+                    while(i < j && nums[i] == nums[++i]);
+                }else if(sum > 0){
+                    while(i < j && nums[j] == nums[--j]);
+                }else{
+                    res.add(new ArrayList<Integer>(Arrays.asList(nums[k],nums[i],nums[j])));
+                    while(i < j && nums[i] == nums[++i]);
+                    while(i < j && nums[j] == nums[--j]);
+                }
+            }
+        }
+        return res;
     }
 }
