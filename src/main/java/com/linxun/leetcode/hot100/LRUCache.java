@@ -10,6 +10,8 @@ import java.util.Map;
  * @date 2023/8/25 19:49
  */
 public class LRUCache {
+
+
     int capacity;
     LinkedHashMap<Integer,Integer> cache;
     public LRUCache(int capacity) {

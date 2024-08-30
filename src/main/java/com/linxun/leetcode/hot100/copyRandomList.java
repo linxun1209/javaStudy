@@ -1,6 +1,5 @@
 package com.linxun.leetcode.hot100;
 
-import com.java8的新特性.NewData;
 import com.linxun.leetcode.Node;
 
 import java.util.HashMap;
@@ -31,8 +30,10 @@ public class copyRandomList {
 
 
     /**
-     * 第一个for循环是复制节点并将复制节点插入到原节点的后面，第二个for循环是设置复制节点的random指针，
-     * 第三个for循环是将复制节点从原链表中分离出来并恢复原链表的结构。最终返回复制链表的头节点。
+     * 第一个for循环是复制节点并将复制节点插入到原节点的后面
+     * 第二个for循环是设置复制节点的random指针，
+     * 第三个for循环是将复制节点从原链表中分离出来并恢复原链表的结构。
+     * 最终返回复制链表的头节点。
      * @param head
      * @return
      */

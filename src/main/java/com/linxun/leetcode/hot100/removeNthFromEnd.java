@@ -30,16 +30,16 @@ public class removeNthFromEnd {
 
     public ListNode removeNthFromEnd2(ListNode head, int n) {
         ListNode dummy = new ListNode(0, head);
-        Deque<ListNode> stack = new LinkedList<ListNode>();
+        Deque<ListNode> deque = new LinkedList<ListNode>();
         ListNode cur = dummy;
         while (cur != null) {
-            stack.push(cur);
+            deque.push(cur);
             cur = cur.next;
         }
         for (int i = 0; i < n; ++i) {
-            stack.pop();
+            deque.pop();
         }
-        ListNode prev = stack.peek();
+        ListNode prev = deque.peek();
         prev.next = prev.next.next;
         ListNode ans = dummy.next;
         return ans;

@@ -41,12 +41,14 @@ public class detectCycle {
     }
 
 
+
+
+
     /**
      * 哈希表
      * @param head
      * @return
      */
-
     public ListNode detectCycle2(ListNode head) {
         ListNode pre=head;
         Set<ListNode> set=new HashSet<>();
@@ -59,6 +61,5 @@ public class detectCycle {
             pre=pre.next;
         }
         return null;
-
     }
 }

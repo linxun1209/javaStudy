@@ -8,24 +8,6 @@ package com.linxun.leetcode.hot100;
  */
 public class reverseKGroup {
 
-    public ListNode reverseKGroupTest(ListNode head, int k) {
-        ListNode hot=head;
-        for (int i=0;i<k;i++){
-            if(hot==null){
-                return head;
-            }
-            hot=hot.next;
-        }
-        ListNode pre=null,cur=head;
-        while (cur!=hot){
-            ListNode temp=cur.next;
-            cur.next=pre;
-            pre=cur;
-            cur=temp;
-        }
-        head.next=reverseKGroupTest(cur,k);
-        return pre;
-    }
 
     /**
      * 递归

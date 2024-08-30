@@ -1,9 +1,6 @@
 package com.linxun.leetcode.hot100;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author xingchen
@@ -16,6 +13,9 @@ import java.util.List;
  *
  */
 public class isPalindrome {
+
+
+
     public boolean isPalindrome(ListNode head) {
 
        Deque<ListNode> deque=new LinkedList<>();
@@ -143,6 +143,31 @@ public class isPalindrome {
         return slow;
     }
 
+
+    /**
+     * 栈
+     *
+     * @param listNode
+     * @return
+     */
+
+    public boolean isPalindrome5(ListNode listNode){
+        ListNode tmp=listNode;
+        Stack<Integer> stack=new Stack<>();
+        while (tmp!=null){
+            stack.push(tmp.val);
+            tmp=tmp.next;
+        }
+        //一边出栈一边比较
+        while (listNode!=null){
+            if(listNode.val!=stack.pop()) {
+                return false;
+            }
+            listNode=listNode.next;
+
+        }
+        return true;
+    }
 
 
 }
