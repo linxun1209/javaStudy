@@ -27,8 +27,7 @@ public class BubbleSort {
                 }
             }
             n = last;
-            System.out.println("第轮冒泡"
-                    + Arrays.toString(a));
+            System.out.println("第轮冒泡" + Arrays.toString(a));
             if (n == 0) {
                 break;
             }
@@ -47,8 +46,7 @@ public class BubbleSort {
                     swapped = true;
                 }
             }
-            System.out.println("第" + j + "轮冒泡"
-                    + Arrays.toString(a));
+            System.out.println("第" + j + "轮冒泡" + Arrays.toString(a));
             if (!swapped) {
                 break;
             }

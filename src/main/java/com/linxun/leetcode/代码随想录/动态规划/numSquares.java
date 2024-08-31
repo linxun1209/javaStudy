@@ -1,5 +1,8 @@
 package com.linxun.leetcode.代码随想录.动态规划;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author xingchen
  * @version V1.0
@@ -39,24 +42,6 @@ public class numSquares {
         }
         return 3;   //4、1、2，都不是，直接返回3
     }
-    public int numSquares2(int n) {
-        int max=Integer.MAX_VALUE;
-        int[] dp=new int[n+1];
-
-        for (int i=0;i<dp.length;i++){
-            dp[i]=max;
-        }
-        dp[0]=0;
-        for(int i=1;i*i<=n;i++){
-            for (int j=i*i;j<=n;j++){
-                if (dp[j-i*i]!=max){
-                    dp[j]=Math.min(dp[j],dp[j-i*i]+1);
-                }
-
-            }
-        }
-        return dp[n];
-    }
 
     // 版本二， 先遍历背包, 再遍历物品
     public int numSquares3(int n) {
@@ -78,4 +63,37 @@ public class numSquares {
         return dp[n];
     }
 
+
+    public int numSquares5(int n) {
+        //完全背包问题，物品为1,4,9,……所有小于等于根号n的完全平方数
+        //最理想情况下n就是完全平方数，n=(根号n)^2 + 0
+        return method1(n);
+    }
+    public int method1(int n){
+        //物品数组，所有小于等于n的完全平方数
+        List<Integer> nums = new ArrayList<Integer>();
+        int num = 1;
+        while(num*num<=n){
+            nums.add(num*num);
+            num+=1;
+        }
+        int m = nums.size();//物品数量
+        //dp[i][j]，在0到i个物品中选取，最少需要几个完全平方数表示j
+        //放不下：dp[i][j]=dp[i-1][j]
+        //放得下，选两种情况中更少的：放dp[i][j]=dp[i][j-nums[i]]+1，不放dp[i][j]=dp[i-1][j]
+        int[][] dp = new int[m][n+1];
+        for(int j=0;j<=n;j++){//初始化，只用物品0的情况
+            if(j%nums.get(0)==0) dp[0][j] = j/nums.get(0);//整除nums[0]时，可以组成
+        }
+        for(int i=1;i<m;i++){
+            for(int j=0;j<=n;j++){
+                if(j<nums.get(i)) dp[i][j] = dp[i-1][j];//放不下，继承
+                else{//放得下，取不放和放中，更小的。dp[i][j-nums.get(i)]是因为可以重复选取
+                    dp[i][j] = Math.min(dp[i-1][j],dp[i][j-nums.get(i)]+1);
+                }
+            }
+        }
+        return dp[m-1][n];
+    }
+    
 }

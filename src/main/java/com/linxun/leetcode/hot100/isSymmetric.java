@@ -33,6 +33,10 @@ public class isSymmetric {
         return p1.val==p2.val&&check(p1.left,p2.right)&&check(p1.right,p2.left);
     }
 
+
+
+
+
     /**
      * 迭代
      */
@@ -40,13 +44,14 @@ public class isSymmetric {
         return check2(root, root);
     }
 
+
     public boolean check2(TreeNode u, TreeNode v) {
         Queue<TreeNode> q = new LinkedList<TreeNode>();
         q.offer(u);
         q.offer(v);
         while (!q.isEmpty()) {
             u = q.poll();
-            v = q.peek();
+            v = q.poll();
             if (u == null && v == null) {
                 continue;
             }
@@ -60,4 +65,7 @@ public class isSymmetric {
         }
         return true;
     }
+
+
+
 }

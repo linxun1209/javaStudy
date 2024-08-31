@@ -27,19 +27,16 @@ public class invertTree {
     /**
      * 利用前序遍历
      */
-    class Solution {
-        // 先序遍历--从顶向下交换
-        public TreeNode invertTree(TreeNode root) {
-            if (root == null) {
-                return null;
-            }
-            // 保存右子树
-            TreeNode rightTree = root.right;
-            // 交换左右子树的位置
-            root.right = invertTree(root.left);
-            root.left = invertTree(rightTree);
-            return root;
+    public TreeNode invertTree3(TreeNode root) {
+        if (root == null) {
+            return null;
         }
+        // 保存右子树
+        TreeNode rightTree = root.right;
+        // 交换左右子树的位置
+        root.right = invertTree3(root.left);
+        root.left = invertTree3(rightTree);
+        return root;
     }
 
     //利用中序遍历
