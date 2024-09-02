@@ -46,6 +46,8 @@ public class subsets {
     }
 
 
+
+
     /**
      * 回溯法
      *
@@ -60,13 +62,13 @@ public class subsets {
 
 
     private void backend(int[] nums, int i) {
-        ans.add(new ArrayList<>());
+        ans.add(new ArrayList<>(path));
         if(i>=nums.length){
             return;
         }
         for (int j=i;j<nums.length;j++){
-            path.add(nums[i]);
-            backend(nums,i+1);
+            path.add(nums[j]);
+            backend(nums,j+1);
             path.removeLast();
         }
     }

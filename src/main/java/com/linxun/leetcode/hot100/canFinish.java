@@ -14,6 +14,10 @@ public class canFinish {
         int[][] prerequisites = {{1,0},{0,1}};
         canFinish(numCourses,prerequisites);
     }
+
+
+
+
     public static boolean canFinish(int numCourses, int[][] prerequisites) {
         int len=prerequisites.length;
         if (len==0){
