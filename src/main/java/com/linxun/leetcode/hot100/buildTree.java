@@ -1,6 +1,5 @@
 package com.linxun.leetcode.hot100;
 
-import com.java8的新特性.Data;
 import com.linxun.leetcode.Tree.TreeNode;
 
 import java.util.*;
@@ -12,7 +11,10 @@ import java.util.*;
  * @date 2023/8/21 20:13
  */
 public class buildTree {
-    public TreeNode buildTree2(int[] preorder, int[] inorder) {
+    public static void main(String[] args) {
+        buildTree2(new int[]{3,9,20,15,7},new int[]{9,3,15,20,7});
+    }
+    public static TreeNode buildTree2(int[] preorder, int[] inorder) {
         if(preorder==null||inorder.length==0){
             return null;
         }

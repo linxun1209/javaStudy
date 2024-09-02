@@ -26,29 +26,13 @@ public class maxPathSum {
         return Math.max(leftSum, rightSum) + root.val;
     }
 
-    int Max=Integer.MIN_VALUE;
-    public int maxPathSum2(TreeNode root) {
-        maxGain(root);
-        return Max;
-    }
-    public int maxGain(TreeNode root0){
-        if(root0==null){
-            return 0;
-        }
-        int left=Math.max(maxGain(root0.left),0);
-        int right=Math.max(maxGain(root0.right),0);
-        int priceNewPath=root0.val+left+right;
-        max=Math.max(max,priceNewPath);
-        return root0.val+Math.max(left,right);
-    }
-
 
     int maxSum = Integer.MIN_VALUE;
     public int maxPathSum3(TreeNode root) {
-        maxGain2(root);
+        maxGain(root);
         return maxSum;
     }
-    public int maxGain2(TreeNode node) {
+    public int maxGain(TreeNode node) {
         if (node == null) {
             return 0;
         }

@@ -2,6 +2,8 @@ package com.linxun.leetcode.hot100;
 
 import com.linxun.leetcode.awing每日挑战.TreeNode;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Stack;
 
 /**
@@ -97,4 +99,23 @@ public class kthSmallest {
         stack.push(root.val);
         helper(root.right, stack, k);
     }
+
+
+    public int kthSmallest5(TreeNode root, int k) {
+        Deque<TreeNode> stack = new ArrayDeque<TreeNode>();
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            root = stack.pop();
+            --k;
+            if (k == 0) {
+                break;
+            }
+            root = root.right;
+        }
+        return root.val;
+    }
+
 }

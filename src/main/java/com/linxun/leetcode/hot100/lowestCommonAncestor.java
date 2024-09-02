@@ -9,6 +9,26 @@ import com.linxun.leetcode.awing每日挑战.TreeNode;
  * @date 2023/12/12 22:35
  */
 public class lowestCommonAncestor {
+
+    public TreeNode lowestCommonAncestor3(TreeNode root, TreeNode p, TreeNode q) {
+        if(root==null){
+            return null;
+        }
+        TreeNode left = lowestCommonAncestor3(root.left, p, q);
+        TreeNode right = lowestCommonAncestor3(root.right, p, q);
+        if(left==null&&right==null) {
+            return null;
+        }
+        if(left!=null&&right==null){
+            return left;
+        }else if(left==null&&right!=null){
+            return right;
+        }else {
+            return root;
+        }
+    }
+
+
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root==null){
             return null;
