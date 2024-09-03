@@ -9,8 +9,6 @@ import java.util.*;
  * @date 2024/1/3 16:11
  */
 public class partition {
-
-
     List<List<String>> lists=new ArrayList<>();
     Deque<String> res=new LinkedList<>();
     public List<List<String>> partition(String s) {
@@ -33,7 +31,6 @@ public class partition {
             backTracking(s,i+1);
             res.removeLast();
         }
-
     }
 
     private boolean isPalindrome(String s,int startIndex,int end){
@@ -43,7 +40,6 @@ public class partition {
             }
         }
         return true;
-
     }
 
 

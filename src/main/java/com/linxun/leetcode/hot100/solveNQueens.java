@@ -51,6 +51,7 @@ public class solveNQueens {
     }
 
 
+
     /**
      * 判断是否满足n皇后的规则
      *
@@ -133,7 +134,6 @@ public class solveNQueens {
     /**
      * 基于集合的回溯
      */
-
     public List<List<String>> solveNQueens3(int n) {
         List<List<String>> solutions = new ArrayList<List<String>>();
         int[] queens = new int[n];

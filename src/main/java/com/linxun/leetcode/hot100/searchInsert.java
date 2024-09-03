@@ -24,4 +24,14 @@ public class searchInsert {
         return right+1;
 
     }
+
+
+    public int searchInsert2(int[] nums, int target) {
+        int i = 0;
+        while(i < nums.length){
+            if(nums[i]>=target)return i;
+            i++;
+        }
+        return i;
+    }
 }
