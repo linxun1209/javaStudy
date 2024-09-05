@@ -10,7 +10,7 @@ public class search {
     public static void main(String[] args) {
         int[] nums={4,5,6,7,0,1,2};
         int target=3;
-        search(nums,target);
+        search4(nums,target);
     }
 
     /**
@@ -58,6 +58,8 @@ public class search {
                 r = mid;
             }
         }
+        //先判断是在前一段还是后一段，然后赋值对应的l和r，随后进行二分查找
+
         if (nums[0] <= target && nums[l] >= target) {
             r = l;
             l = 0;

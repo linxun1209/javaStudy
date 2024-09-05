@@ -9,11 +9,16 @@ import java.util.Stack;
  * @date 2023/8/13 8:48
  */
 public class largestRectangleArea {
-    public int largestRectangleArea(int[] heights) {
+    public static void main(String[] args) {
+        int[] heights={2,1,5,6,2,3};
+        System.out.println(largestRectangleArea(heights));
+    }
+    public static int largestRectangleArea(int[] heights) {
         int len=heights.length;
         int[] minLeft=new int[len];
         int[] minRight=new int[len];
         minLeft[0]=-1;
+        //找到左边比他小的值的索引
         for (int i=1;i<len;i++){
             int t=i-1;
             while (t >= 0 && heights[t] >= heights[i]) {
@@ -21,6 +26,7 @@ public class largestRectangleArea {
             }
             minLeft[i] = t;
         }
+        //找到右边比他小的值的索引
         minRight[len-1]=len;
         for (int i=len-2;i>=0;i--){
             int t=i+1;
@@ -42,7 +48,6 @@ public class largestRectangleArea {
 
     int largestRectangleArea2(int[] heights) {
         Stack<Integer> st = new Stack<Integer>();
-
         // 数组扩容，在头和尾各加入一个元素
         int [] newHeights = new int[heights.length + 2];
         newHeights[0] = 0;
@@ -78,29 +83,4 @@ public class largestRectangleArea {
         }
         return result;
     }
-
-
-    public int largestRectangleArea3(int[] heights) {
-        int[] newHeight = new int[heights.length + 2];
-        System.arraycopy(heights, 0, newHeight, 1, heights.length);
-        newHeight[heights.length+1] = 0;
-        newHeight[0] = 0;
-
-        Stack<Integer> stack = new Stack<>();
-        stack.push(0);
-
-        int res = 0;
-        for (int i = 1; i < newHeight.length; i++) {
-            while (newHeight[i] < newHeight[stack.peek()]) {
-                int mid = stack.pop();
-                int w = i - stack.peek() - 1;
-                int h = newHeight[mid];
-                res = Math.max(res, w * h);
-            }
-            stack.push(i);
-
-        }
-        return res;
-    }
-
 }

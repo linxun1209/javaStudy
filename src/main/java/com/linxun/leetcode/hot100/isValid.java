@@ -53,6 +53,8 @@ public class isValid {
         isValid2(s);
     }
 
+
+
     public static boolean isValid3(String s) {
         if(s.length()==0){
             return true;

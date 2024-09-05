@@ -25,6 +25,7 @@ public class findMedianSortedArrays {
         int m = nums1.length;
         int n = nums2.length;
         nums = new int[m + n];
+        //其中有一个数组为空的情况下
         if (m == 0) {
             if (n % 2 == 0) {
                 return (nums2[n / 2 - 1] + nums2[n / 2]) / 2.0;
