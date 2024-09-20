@@ -23,28 +23,32 @@ public class Main1 {
     }
     static int ans=0;
     public  int merge (ListNode a) {
-        //递归
         if(a==null||a.next==null){
             return ans;
         }
         ListNode pre=new ListNode(-1);
         pre.next=a;
-        if(!isPre(pre)){
-            ans++;
+        while (pre!=null&&pre.next!=null) {
+            if(pre.val==0&&pre.next.val==0){
+                ans++;
+            }else if(pre.val!=0&&pre.next.val!=0){
+                ans++;
+            }
         }
         return ans;
-
-
         // write code here
     }
+
+
+
     private  boolean isPre(ListNode pre){
         while (pre!=null&&pre.next!=null) {
             //两种条件
-            if (pre.next.val == 0 && pre != null && pre.val != 0) {
+            if (pre.next.val == 0 && pre != null && pre.val == 0) {
                 pre=pre.next;
                 return true;
 
-            } else if (pre.next.val != 0 && pre != null && pre.val == 0) {
+            } else if (pre.next.val != 0 && pre != null && pre.val != 0) {
                 pre=pre.next;
                 return true;
 

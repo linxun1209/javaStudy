@@ -18,27 +18,7 @@ public class findKthLargest {
     }
 
 
-    public static int findKthLargest2(int[] nums, int k) {
-        int max=nums[0],min=nums[0];
-        for (int num:nums){
-            if(max<num){
-                max=num;
-            }else {
-                min=num;
-            }
-        }
-        int[] count =new int[max-min+1];
-        for (int num:nums){
-            count[num-min]++;
-        }
-        for (int i=max-min;i>=0;i--){
-            k-=count[i];
-            if(k<=0){
-                return i+min;
-            }
-        }
-        return nums[0];
-    }
+
 
 
 
@@ -130,6 +110,50 @@ public class findKthLargest {
     public static int findKthLargest4(int[] _nums, int k) {
         int n = _nums.length;
         return quickselect(_nums, 0, n - 1, n - k);
+    }
+
+
+
+    public int findKthLargest5(int[] nums, int k) {
+        int[] arr=new int[k];
+        for (int i=0;i<k;i++){
+            arr[i]=nums[i];
+        }
+        bulidHeap1(arr,k-1);
+        for (int i=k;i<nums.length;i++){
+            if(nums[i]>arr[0]){
+                arr[0]=nums[i];
+                heapify1(arr, k - 1, 0);
+            }
+
+        }
+        return arr[0];
+    }
+
+
+
+    //构建最小堆
+    private void bulidHeap1(int[] arr, int n) {
+        for (int i=n/2;i>=0;i--){
+            heapify1(arr,n,i);
+        }
+    }
+
+    private void heapify1(int[] arr, int n, int i) {
+        while(true){
+            int minPos=i,left=i*2+1,right=left+1;
+            if(left<=n&&arr[minPos]>arr[left]) minPos=left;
+            if(right<=n&&arr[minPos]>arr[right]) minPos=right;
+            if(minPos==i) break;
+            swap1(arr,i,minPos);
+            i=minPos;
+        }
+    }
+
+    private void swap1(int[] arr, int i, int minPos) {
+        int temp=arr[i];
+        arr[i]=arr[minPos];
+        arr[minPos]=temp;
     }
 
 }

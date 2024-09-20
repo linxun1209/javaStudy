@@ -63,12 +63,6 @@ public class MAIN2 {
         }
     }
 
-
-
-
-
-
-
     //对数据进行数据结构的选择，之后进行赋值
 
     public static void main(String[] args) {
